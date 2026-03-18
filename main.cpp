@@ -12,7 +12,7 @@ int g_piezaX = 0;
 int g_piezaY = 0;
 int bytsporfila = 0;
 unsigned char* g_tablero = 0;
-
+/*
 static int tableroindice(int x, int y);
 static int dentro(int x, int y);
 static int esta_ocupado(int x, int y);
@@ -30,7 +30,7 @@ unsigned short piesas(int t) {
     if (t == 5) return (unsigned short)0x0071;
     return (unsigned short)0x0074;
 }
-
+*/
 // imprimir la figura en pantalla, asignando puntero a puntero como matriz
 void figura(int t, char **filas) {
     unsigned short p = piesas(t);

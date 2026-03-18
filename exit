@@ -1,0 +1,23 @@
+[33mcommit 36e392581fb89d9892a83f85d944876524effb99[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Andres Felipe Maca <andr3sm4ca@gmail.com>
+Date:   Wed Mar 18 00:37:37 2026 -0500
+
+    nueva implementacion del tablero con variables dadas
+
+[33mcommit e972bdbc62c89277ff6b4cdf5e134b6f0003696d[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Andres Felipe Maca <andr3sm4ca@gmail.com>
+Date:   Tue Mar 17 00:30:57 2026 -0500
+
+    imprimir tablero y funcionamiento de filas eliminadas
+
+[33mcommit 18124cf581a18a737563b05fc5bce15f6c9fb961[m
+Author: Andres Felipe Maca <andr3sm4ca@gmail.com>
+Date:   Fri Mar 13 19:57:44 2026 -0500
+
+    agregar informe preliminar
+
+[33mcommit 54cdd2baf6f924fa7a110342476d0c84ba4c8d56[m
+Author: Andres Felipe Maca <andr3sm4ca@gmail.com>
+Date:   Thu Mar 12 23:17:30 2026 -0500
+
+    Primera opcion para la creacion de las figuras
