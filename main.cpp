@@ -12,26 +12,7 @@ int g_piezaX = 0;
 int g_piezaY = 0;
 int bytsporfila = 0;
 unsigned char* g_tablero = 0;
-/*
-static int tableroindice(int x, int y);
-static int dentro(int x, int y);
-static int esta_ocupado(int x, int y);
-static void imprimir_tablero();
-//static int esta_ocupado(int x, int y) { return estaOcupado(x, y); }
-//static void imprimir_tablero() { imprimir_tablero(); }
 
-// creacion de las figuras a nivel de bits, generando cada bit hexadecimal como una matriz de 4x4
-unsigned short piesas(int t) {
-    if (t == 0) return (unsigned short)0x00F0;
-    if (t == 1) return (unsigned short)0x0066;
-    if (t == 2) return (unsigned short)0x0072;
-    if (t == 3) return (unsigned short)0x0036;
-    if (t == 4) return (unsigned short)0x0063;
-    if (t == 5) return (unsigned short)0x0071;
-    return (unsigned short)0x0074;
-}
-*/
-// imprimir la figura en pantalla, asignando puntero a puntero como matriz
 void figura(int t, char **filas) {
     unsigned short p = piesas(t);
 
@@ -45,15 +26,15 @@ void figura(int t, char **filas) {
     }
 }
 
-static int tableroindice(int x, int y) {
+int tableroindice(int x, int y) {
     return y * bytsporfila + (x >> 3);
 }
 
-static int dentro(int x, int y) {
+int dentro(int x, int y) {
     return x >= 0 && x < g_ancho && y >= 0 && y < g_alto;
 }
 
-static int esta_ocupado(int x, int y) {
+int esta_ocupado(int x, int y) {
     if (!dentro(x, y)) return 1;
 
     int idx = tableroindice(x, y);
@@ -61,7 +42,7 @@ static int esta_ocupado(int x, int y) {
     return (g_tablero[idx] & bit) != 0;
 }
 
-static void imprimir_tablero() {
+void imprimir_tablero() {
     cout << "\nLineas eliminadas: " << lineaseliminadas << "\n";
 
     for (int y = 0; y < g_alto; ++y) {
