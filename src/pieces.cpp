@@ -1,5 +1,4 @@
 #include "pieces.h"
-#include <random>
 
 using namespace std;
 /*
@@ -13,6 +12,8 @@ using namespace std;
 #define PIEZA_L 6
 #define NUMERO_PIEZAS 7
  */
+
+int indice_pieza = 0;
 
 void obtener_pieza_inicial(int tipo, unsigned short forma[4], int* ancho, int* alto) {
     for (int i = 0; i < 4; i++) {
@@ -100,9 +101,12 @@ void rotar_forma_pieza(const unsigned short forma_entrada[4], int ancho_entrada,
 }
 
 int pieza_aleatoria() {
-    static random_device dispositivo_aleatorio;
-    static mt19937 generador(dispositivo_aleatorio());
-    static uniform_int_distribution<int> distribucion(0, 6);
+    int pieza = indice_pieza;
+    indice_pieza = indice_pieza + 1;
 
-    return distribucion(generador);
+    if (indice_pieza == 7) {
+        indice_pieza = 0;
+    }
+
+    return pieza;
 }
