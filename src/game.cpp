@@ -172,3 +172,81 @@ int rotar_pieza() {
     rotacion_actual = (rotacion_actual + 1) % 4;
     return 1;
 }
+
+int iniciar_juego() {
+    int ancho;
+    int alto;
+
+    if (forma_actual == 0) {
+        forma_actual = new unsigned short[MAX_TAMANO_PIEZA];
+    }
+
+    for (int i = 0; i < MAX_TAMANO_PIEZA; i++) {
+        forma_actual[i] = 0;
+    }
+
+    do {
+        cout << "Ingrese ancho del tablero (multiplo de 8, minimo 8): ";
+        cin >> ancho;
+        cout << "Ingrese alto del tablero (minimo 8): ";
+        cin >> alto;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            ancho = 0;
+            alto = 0;
+        }
+    } while (!crear_tablero(ancho, alto));
+
+    estado_juego_terminado = 0;
+    estado_salida_solicitada = 0;
+    generar_nueva_pieza();
+    return 1;
+}
+
+void ejecutar_juego() {
+    while (!estado_juego_terminado && !estado_salida_solicitada) {
+        mostrar_juego();
+
+        cout << "\nAccion (a=izq, d=der, s=bajar, w=rotar, q=salir): ";
+        char accion;
+        cin >> accion;
+
+        switch (accion) {
+        case 'a':
+        case 'A':
+            mover_izquierda();
+            break;
+        case 'd':
+        case 'D':
+            mover_derecha();
+            break;
+        case 's':
+        case 'S':
+            mover_abajo();
+            break;
+        case 'w':
+        case 'W':
+            rotar_pieza();
+            break;
+        case 'q':
+        case 'Q':
+            estado_salida_solicitada = 1;
+            break;
+        default:
+            break;
+        }
+    }
+
+    if (estado_juego_terminado) {
+        cout << "\nGAME OVER!\n";
+    }
+}
+
+void destruir_juego() {
+    destruir_tablero();
+
+    delete[] forma_actual;
+    forma_actual = 0;
+}
