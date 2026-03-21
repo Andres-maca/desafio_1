@@ -1,17 +1,7 @@
 #include "pieces.h"
 
 using namespace std;
-/*
-#define MAX_TAMANO_PIEZA 4
-#define PIEZA_I 0
-#define PIEZA_O 1
-#define PIEZA_T 2
-#define PIEZA_S 3
-#define PIEZA_Z 4
-#define PIEZA_J 5
-#define PIEZA_L 6
-#define NUMERO_PIEZAS 7
- */
+
 
 int indice_pieza = 0;
 
