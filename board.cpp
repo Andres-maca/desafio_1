@@ -1,4 +1,4 @@
-#include "tablero.h"
+#include "board.h"
 #include <iostream>
 using namespace std;
 
